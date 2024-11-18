@@ -1,6 +1,6 @@
-package com.example.StudentCRUD.service;
+package com.example.StudentCRUD.api.service;
 
-import com.example.StudentCRUD.entity.Student;
+import com.example.StudentCRUD.api.entity.Student;
 
 import java.util.List;
 import java.util.Optional;

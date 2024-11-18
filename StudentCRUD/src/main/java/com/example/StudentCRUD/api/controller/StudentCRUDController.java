@@ -1,7 +1,7 @@
-package com.example.StudentCRUD.controller;
+package com.example.StudentCRUD.api.controller;
 
-import com.example.StudentCRUD.entity.Student;
-import com.example.StudentCRUD.service.StudentCRUDService;
+import com.example.StudentCRUD.api.entity.Student;
+import com.example.StudentCRUD.api.service.StudentCRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,19 +21,19 @@ public class StudentCRUDController {
 
     @GetMapping
     public List<Student> getAllStudents(){
-           return StudentCRUDService.getAllStudents();
+           return studentCRUDService.getAllStudents();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Student> getStudentById(@PathVariable Long id){
-        return studentCRUDService.getStudentById()
+        return studentCRUDService.getStudentById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public Student addStudent(@RequestBody Student student){
-        return StudentCRUDService.addStudent(student);
+        return studentCRUDService.addStudent(student);
     }
 
     @PutMapping("/{id}")
@@ -48,7 +48,7 @@ public class StudentCRUDController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteStudent(@PathVariable Long id){
-        StudentCRUDService.deleteStudent(id);
+        studentCRUDService.deleteStudent(id);
         return ResponseEntity.noContent().build();
     }
 }

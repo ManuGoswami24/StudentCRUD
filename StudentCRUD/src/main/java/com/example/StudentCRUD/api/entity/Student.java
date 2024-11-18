@@ -1,4 +1,4 @@
-package com.example.StudentCRUD.entity;
+package com.example.StudentCRUD.api.entity;
 
 
 import jakarta.persistence.*;
